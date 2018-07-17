@@ -13,7 +13,7 @@ let initialState = {
 }
 
 // Reducer
-export default function reducer(state=initialState, action) {
+export function reducer(state=initialState, action) {
     switch(action.type) {
         case GET_ALL_PRODUCTS_PENDING:
             return Object.assign({}, state, {loading: true});
@@ -29,7 +29,7 @@ export default function reducer(state=initialState, action) {
             newArray.splice(action.index, 1);
             return Object.assign({}, {shoppingCart: newArray});
             
-        defualt:
+        default:
             return state;
     }
 }
@@ -55,3 +55,4 @@ export function getAllProducts(products) {
         payload: productsController.getAllProducts()
     }
 }
+export default reducer;
